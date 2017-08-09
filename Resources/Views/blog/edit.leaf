@@ -1,0 +1,18 @@
+#extend("base")
+
+#export("title") { 
+記事編集
+}
+
+#export("content") {
+	<h1>記事編集</h1>
+
+  <form method="post" action="/#(blog.id)">
+    <input type="hidden" name="_METHOD" value="PATCH" />
+    Title: <input type="text" name="title" size="50" value="#(blog.title)" />
+    <br />
+    <textarea name="body" rows="30" cols="100">#(blog.body)</textarea>
+    <input type="submit" value="編集" />
+  </form>
+
+}

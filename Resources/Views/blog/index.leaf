@@ -1,0 +1,37 @@
+#extend("base")
+
+#export("title") { 
+記事一覧
+}
+
+#export("content") {
+	<h1>記事一覧</h1>
+
+  <a href="/create">追加</a>
+
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>title</th>
+      <th>作成日時</th>
+      <th>更新日時</th>
+      <th>&nbsp;</th>
+    </tr>
+    #loop(blogs, "blog") { 
+    <tr>
+      <td>#(blog.id)</td>
+      <td><a href="/#(blog.id)">#(blog.title)</a></td>
+      <td>#(blog.created_at)</td>
+      <td>#(blog.updated_at)</td>
+      <td>
+        <a href="/#(blog.id)/edit">編集</a>
+        <form method="post" action="/#(blog.id)/">
+          <input type="hidden" name="_METHOD" value="DELETE" />
+          <input type="submit" value="削除" />
+        </form>
+      </td>
+    </tr>
+    }
+  </table>
+
+  }

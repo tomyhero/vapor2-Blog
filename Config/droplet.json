@@ -37,7 +37,8 @@
     "middleware": [
         "error",
         "date",
-        "file"
+        "file",
+        "http_method_filter"
     ],
 
     "//": "Choose which commands this application can run",
